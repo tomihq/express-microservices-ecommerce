@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  auth-service:
+    build:
+      context: ./Auth
+    ports:
+      ["8000:8000"]
+  orders-service:
+    build:
+      context: ./Orders
+    ports:
+      ["8001:8001"]
+  payment-service:
+    build:
+      context: ./Payment
+    ports:
+      ["8002:8002"]
+    
