@@ -1,11 +1,13 @@
 FROM node:18
 
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn && yarn add typescript@4.5.2
 
-COPY src/ ./src/
+RUN yarn build
 
-CMD ["node", "src/index.ts"]
+COPY . ./
+
+CMD ["yarn", "start"]
