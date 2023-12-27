@@ -1,13 +1,13 @@
 FROM node:18
 
-WORKDIR /usr/app
+WORKDIR /app
 
 COPY package*.json ./
 
-RUN yarn && yarn add typescript@4.5.2
+RUN npm install
 
-RUN yarn build
+COPY . .
 
-COPY . ./
+EXPOSE 8001
 
-CMD ["yarn", "start"]
+CMD ["yarn", "dev"]

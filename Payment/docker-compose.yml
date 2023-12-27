@@ -2,7 +2,12 @@ services:
    payment-service:
       build:
         context: .
-      command: yarn start
+        dockerfile: Dockerfile
+      volumes:
+        - ./src:/app/src
+      container_name:
+        payment
+      command: yarn dev
       ports:
         ["8002:8002"]
   

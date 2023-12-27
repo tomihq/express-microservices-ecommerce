@@ -1,8 +1,13 @@
 services:
-   payment-service:
+   orders-service:
       build:
         context: .
-      command: yarn start
+        dockerfile: Dockerfile
+      volumes:
+        - ./src:/app/src
+      container_name:
+        orders
+      command: yarn dev
       ports:
         ["8001:8001"]
   

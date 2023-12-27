@@ -1,8 +1,13 @@
 services:
-   payment-service:
+   auth-service:
       build:
         context: .
-      command: yarn start
+        dockerfile: Dockerfile
+      volumes:
+        - ./src:/app/src
+      container_name:
+        auth
+      command: yarn dev
       ports:
         ["8000:8000"]
   
